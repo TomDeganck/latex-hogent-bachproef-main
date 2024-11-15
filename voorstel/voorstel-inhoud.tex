@@ -11,6 +11,8 @@
 % kader van het vak Research Methods dat ik (vorig/dit) academiejaar heb
 % uitgewerkt (met medesturent VOORNAAM NAAM als mede-auteur).
 % 
+\newcommand{\figref}[1]{(Zie \hyperref[#1]{figuur: \ref{#1}})}
+
 \section{Inleiding}%
 \label{sec:inleiding}
 
@@ -41,10 +43,34 @@ Voor het verzamelen van de data zal gebruik worden gemaakt van verschillende bro
 Deze bronnen zullen bestaan uit bestaande datasets, zoals de VGT-dataset van de Universiteit van Gent.
 Daarnaast zullen er ook nieuwe datasets worden gecreëerd door middel van het opnemen van VGT-gebaren met behulp van een camera.
 Deze datasets zullen worden gebruikt om het model te trainen en te valideren.
+Voor deze fase een periode van 2 weken duren. \figref{fig:gantt_tijd}
 \subsection{Fase 2: Preprocessing}
+Voor het Preprocessen van de data wordt er weer een werktijd van 2 weken voorzien.\figref{fig:gantt_tijd}
+Hier zullen de datasets worden geanalyseerd en gezuiverd.
+De datasets zullen samengevoegd worden tot één dataset en worden opgedeeld in een trainingsset en een testset.
+Het zal ook alle data juist labelen als dit nog niet correct is gebeurd.
 \subsection{Fase 3: Modeltraining}
+In de derde fase van het onderzoek zal het model worden getraind.
+Dit zal de meeste tijd innemen van het onderzoek, namelijk 4 weken. \figref{fig:gantt_tijd}
+Er zal een deep learning model worden ontwikkeld dat in staat is om VGT-gebaren te herkennen en om te zetten in tekst.
+Hier zullen ook meerdere modellen getest worden om te kijken welk model het beste presteert.
+De modellen zullen gekozen worden aan de hand van de literatuurstudie.
+De modellen trainen zelf zal 3 weken duren en de laatste week zal dienen om de modellen te testen en te vergelijken.\figref{fig:gantt_tijd}
 \subsection{Fase 4: Real-time implementatie}
+In de vierde fase van het onderzoek zal het getrainde model worden aangepast zodat het real-time zou kunnen werken.
+Deze fase zal 4 weken duren.\figref{fig:gantt_tijd}
+Hier zal prunning en quantization worden toegepast om het model te optimaliseren voor real-time gebruik.
 \subsection{Fase 5: Evaluatie \& Validatie}
+In de laatste fase van het onderzoek zal het model worden geëvalueerd en gevalideerd.
+Deze fase zal 2 weken duren.\figref{fig:gantt_tijd}
+Het model zal worden getest op een nieuwe dataset en de resultaten zullen worden geanalyseerd.
+Moesten er nog enige fouten zijn in het model zullen deze worden aangepast en zal het model opnieuw worden getest.
+
+\begin{figure}[h!]
+  \includegraphics[width=0.5\textwidth]{../graphics/gantt_tijd.png}
+  \caption{tijdlijn van het onderzoek}
+  \label{fig:gantt_tijd}
+\end{figure}
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwacht resultaat, conclusie}%
 \label{sec:verwachte_resultaten}
