@@ -27,6 +27,60 @@ Deze technologische vooruitgang belooft een aanzienlijke impact te hebben op de 
 \section{Literatuurstudie}%
 \label{sec:literatuurstudie}
 
+\subsection{Vlaamse Gebarentaal}
+\label{subsec:vgt}
+
+Het Vlaamse Gebarentaal (VGT) is een visuele taal die wordt gebruikt door de Vlaamse dovengemeenschap. 
+Het is een volwaardige taal met een eigen grammatica en lexicon, die verschilt van gesproken talen zoals Nederlands en Frans. 
+VGT maakt gebruik van handgebaren, gezichtsuitdrukkingen en lichaamstaal om betekenis over te brengen. 
+Het is belangrijk op te merken dat VGT, net als gesproken talen, regionale variaties kent, wat de complexiteit van de vertaling vergroot \autocite{469340}.
+Dit betekent dus dat het model dat wordt ontwikkeld rekening moet houden met deze regionale variaties.
+Er zijn in totaal 5 variaties op het VGT, deze zijn ook regionaal gebonden.\autocite{469340}
+De variaties zijn: West-Vlaanderen, OostVlaanderen, Antwerpen, Limburg en Vlaams-Brabant.
+Het kan echter ook zijn dat bepaalde gebaren in de ene regio hetzelfde zijn als in een andere regio.
+Maar de variatie in deze regionale gebaren is niet direct significant.
+Uit studies van \textcite{469340} blijkt dat 72.3\% van de gebaren in de verschillende regio's identieke verwante of verwante gebaren tonen.
+Hierbij blijkt zelf de antwerpse variant de centraalste variant te zijn.\autocite{469340}
+Maar het is wel belangrijk om hier rekening mee te houden.
+
+
+\subsection{Data-acquisitie}
+\label{subsec:data-acquisitie}
+
+Het verzamelen van data is een cruciale stap in het ontwikkelen van een AI-model voor VGT-herkenning.
+Er zijn verschillende manieren om data te verzamelen, waaronder het gebruik van bestaande datasets en het opnemen van nieuwe datasets met behulp van camera's.
+Een van de meest gebruikte datasets voor VGT-herkenning is de VGT-dataset van de Universiteit van Gent.\autocite{VGT_Signbank}
+Voor deze dataset moet toegang aangevraagd worden aan de Universiteit van Gent.
+Een andere optie voor deze dataset is om hun website te scrapen en zelf te labelen.
+Er zijn ook andere datasets beschikbaar, zoals het VGT-corpus van de Universiteit van Leuven.\textcite{Corpus_VGT}
+Deze datasets bevatten video-gesprekken van VGT-gebaren.
+Er is ook een gedeelde met de gelabelde data en annotaties van de video's.
+Hier zijn ze echter nog aan aan het werken en vereist speciale toegang.\autocite{Over_het_Corpus_VGT}
+Een andere optie is om zelf een dataset te maken door VGT-gebaren op te nemen met behulp van een camera.
+Dit kan gedaan worden door een camera te gebruiken die is aangesloten op een computer of door een smartphone te gebruiken.
+Er kan getwijfeld worden over de grote van deze dataset maar onderzoek van \textcite{Coster2023} toont aan dat een van deze dataset groot genoeg is om een model te trainen met goede accuratie.
+
+\subsection{Modeltraining}
+\label{subsec:modeltraining}
+Voor het model te trainen zal er gebruik gemaakt worden van deep learning.
+Hier zullen meerdere mogelijke manieren van modellen trainen toegepast worden. 
+En op het einde zal er gekeken worden welk model het beste presteert.
+Een van de meest gebruikte modellen voor VGT-herkenning is het convolutionele neurale netwerk (CNN).
+Dit type model is effectief gebleken in het herkennen van handgebaren en gezichtsuitdrukkingen in VGT-video's.\autocite{10.17485/ijst/v16i45.2583}
+Een ander optie is het gebruik van transfer learning.
+Dit is een techniek waarbij een model wordt getraind op een grote dataset en vervolgens wordt aangepast aan een specifieke of verwante taak.\autocite{torrey2010transfer}
+Er zijn meerdere modellen waarbij deze techniek zou toegepast kunnen worden.
+Het zou kunnen op een gewoon image classification model zoals VGG16 of ResNet.
+VGG16 is een model gemaakt door Visual Geometry Group van de Universiteit van Oxford.
+Het is een model dat goed presteert op image classification en zou dus ook goed kunnen presteren op VGT-herkenning.
+VGG16 wordt vaker gebruikt om transfer learning toe te passen.
+Zoals bijvoorbeeld in \textcite{9491631} waar ze VGG16 gebruiken om borstkanker te herkennen.
+Het werd zelf al gebruikt voor gebarentaalherkenning in \textcite{Abu-Jamie2022-ABUCOS-2}.
+ResNet, of Residual Network, is een ander baanbrekend model dat is ontwikkeld door Kaiming He.
+Net zoals VGG16 is ResNet een model dat goed presteert op image classification en zou dus ook goed kunnen presteren op VGT-herkenning.
+Het werd ook al eerder gebruikt voor gebarentaalherkenning in \textcite{Wang2022}.
+De reden 
+
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
 %   geen onderdeel is van de zin.
