@@ -85,6 +85,7 @@ Het werd ook al eerder gebruikt voor gebarentaalherkenning in \textcite{Wang2022
 Het zou ook kunnen om transfer learning toe te passen op een model dat zelf al gebarentaal herkent.
 
 
+
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
 %   geen onderdeel is van de zin.
@@ -110,14 +111,14 @@ Het zal ook alle data juist labelen als dit nog niet correct is gebeurd.
 \subsection{Fase 3: Modeltraining}
 In de derde fase van het onderzoek zal het model worden getraind.
 Dit zal de meeste tijd innemen van het onderzoek, namelijk 4 weken\figref{fig:gantt_tijd}.
-Er zal een deep learning model worden ontwikkeld dat in staat is om VGT-gebaren te herkennen en om te zetten in tekst.
-Hier zullen ook meerdere modellen getest worden om te kijken welk model het beste presteert.
-De modellen zullen gekozen worden aan de hand van de literatuurstudie.
+Er zal een deep learning model worden gezocht dat al in staat is om gebarentaal te herkennen en om te zetten in tekst.
+Hierbij zal er dus gebruik gemaakt worden van transfer learning.
+Het startmodel zal gekozen worden op basis van de literatuurstudie.
 De modellen trainen zelf zal 3 weken duren en de laatste week zal dienen om de modellen te testen en te vergelijken\figref{fig:gantt_tijd}.
-\subsection{Fase 4: Real-time implementatie}
-In de vierde fase van het onderzoek zal het getrainde model worden aangepast zodat het real-time zou kunnen werken.
+\subsection{Fase 4: Model optimalisatie}
+In de vierde fase van het onderzoek zal het getrainde model worden aangepast zodat het efficienter zal werken.
 Deze fase zal 4 weken duren\figref{fig:gantt_tijd}.
-Hier zal prunning en quantization worden toegepast om het model te optimaliseren voor real-time gebruik.
+Hier zal prunning en quantization worden toegepast om het model te optimaliseren voor mogelijk real-time gebruik.
 \subsection{Fase 5: Evaluatie \& Validatie}
 In de laatste fase van het onderzoek zal het model worden geëvalueerd en gevalideerd.
 Deze fase zal 2 weken duren\figref{fig:gantt_tijd}.

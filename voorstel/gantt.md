@@ -15,10 +15,10 @@ gantt
     Data preprocessing: active, des3, 08/02/2025, 22/02/2025
 
     section Fase 3 Modeltraining:
-    Meerdere modellen trainen: active, des5, 22/02/2025, 15/03/2025
-    Modellen evalueren: active, des6, 15/03/2025, 22/03/2025
+    Gepaste model zoeken: active, des5, 22/02/2025, 8/03/2025
+    Model trainen: active, des6, 8/03/2025, 22/03/2025
 
-    section Fase 4 Real-time implementatie:
+    section Fase 4 Model Optimalisatie:
     Prunning & quantanization: active, des7, 22/03/2025, 19/04/2025
 
     section Fase 5 Evaluatie & Validatie:
