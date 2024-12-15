@@ -9,7 +9,7 @@
 
 % Dit voorstel is gebaseerd op het onderzoeksvoorstel dat werd geschreven in het
 % kader van het vak Research Methods dat ik (vorig/dit) academiejaar heb
-% uitgewerkt (met medesturent VOORNAAM NAAM als mede-auteur).
+% uitgewerkt (met medestudent VOORNAAM NAAM als mede-auteur).
 % 
 \newcommand{\figref}[1]{(Zie \hyperref[#1]{figuur: \ref{#1}})}
 
@@ -24,7 +24,7 @@ Dit onderzoek richt zich op de inzet van AI-technologieën voor het herkennen en
   \item Welke AI-technologieën zijn beschikbaar voor gebarentaalherkenning en hoe effectief zijn deze al? 
   \item Hoe kunnen we verder bouwen op al bestaande gebarentaal herkenning? 
   \item Welke uitdagingen en beperkingen zijn er bij het ontwikkelen van een vertalingssysteem voor VGT? 
-  \item Hoe kan zo'n systeem de communicatie en inclusie van de dove gemeenschap verbeteren? 
+  \item Hoe kan zo'n systeem de communicatie en inclusie van de dove gemeenschap verbeteren?
 \end{enumerate}
 
 De structuur van VGT is complex, met variaties in handvorm, beweging en gezichtsuitdrukkingen \autocite{469340}. Geavanceerde algoritmen zoals deep learning en convolutionele neurale netwerken (CNN) zijn veelbelovend voor gebarentaalherkenning \autocite{10.52756/ijerr.2023.v34spl.004}\autocite{10.17485/ijst/v16i45.2583}. Met camera's op smartphones kunnen systemen worden ontwikkeld die gebaren in real-time omzetten naar tekst.
@@ -42,7 +42,7 @@ VGT maakt gebruik van handgebaren, gezichtsuitdrukkingen en lichaamstaal om bete
 Het is belangrijk op te merken dat VGT, net als gesproken talen, regionale variaties kent, wat de complexiteit van de vertaling vergroot \autocite{469340}.
 Dit betekent dus dat het model dat wordt ontwikkeld rekening moet houden met deze regionale variaties.
 Er zijn in totaal 5 variaties op het VGT, deze zijn ook regionaal gebonden\autocite{469340}.
-De variaties zijn: West-Vlaanderen, OostVlaanderen, Antwerpen, Limburg en Vlaams-Brabant.
+De variaties zijn: West-Vlaanderen, Oost-Vlaanderen, Antwerpen, Limburg en Vlaams-Brabant.
 Het kan echter ook zijn dat bepaalde gebaren in de ene regio hetzelfde zijn als in een andere regio.
 Maar de variatie in deze regionale gebaren is niet direct significant.
 Uit studies van \textcite{469340} blijkt dat 72.3\% van de gebaren in de verschillende regio's identieke verwante of verwante gebaren tonen.
@@ -65,7 +65,7 @@ Hier zijn ze echter nog aan aan het werken en vereist speciale toegang\autocite{
 Een andere optie is om zelf een dataset te maken door VGT-gebaren op te nemen met behulp van een camera.
 Dit kan gedaan worden door een camera te gebruiken die is aangesloten op een computer of door een smartphone te gebruiken.
 Er kan getwijfeld worden over de grote van deze dataset maar onderzoek van \textcite{Coster2023} toont aan dat een van deze dataset groot genoeg is om een model te trainen met goede accuratie.
-Een ander probleem dat zich kan voordoen is dat de data niet in het juiste formaat is voor een model efficient of goed te trainen\autocite{Vandeghinste2024}.
+Een ander probleem dat zich kan voordoen is dat de data niet in het juiste formaat is voor een model effici{\"e}nt of goed te trainen\autocite{Vandeghinste2024}.
 
 
 \subsection{Modeltraining}
@@ -76,7 +76,7 @@ Een van de meest gebruikte type modellen voor Gebarentaal-herkenning is het conv
 Dit type model is al reeds effectief gebleken in het halen van handgebaren en gezichtsuitdrukkingen in gebarentaal video's\autocite{10.17485/ijst/v16i45.2583}.
 Een optie binnenin convolutionele neurale netwerken is transfer learning.
 Dit is een techniek waarbij een model wordt getraind op een grote dataset en vervolgens wordt aangepast aan een specifieke of verwante taak\autocite{torrey2010transfer}.
-Meestal gebruieken ze hiervoor al een bestaand model dat al getraind.
+Meestal gebruiken ze hiervoor al een bestaand model dat al getraind.
 Er zijn meerdere modellen waarbij deze techniek zou toegepast kunnen worden.
 Het zou kunnen op een gewoon image classification model zoals VGG16 of ResNet.
 VGG16 is een model gemaakt door Visual Geometry Group van de Universiteit van Oxford.
@@ -88,6 +88,14 @@ ResNet, of Residual Network, is een ander baanbrekend model dat is ontwikkeld do
 Net zoals VGG16 is ResNet een model dat goed presteert op image classification en zou dus ook goed kunnen presteren op VGT-herkenning.
 Het werd ook al eerder gebruikt voor gebarentaalherkenning in \textcite{Wang2022}.
 Het zou ook kunnen om transfer learning toe te passen op een model dat zelf al gebarentaal herkent.
+Hiervan is een mooi opensource model van het SingOn-project\autocite{SingOn}. 
+Dit was een samenwerking tussen Tilburg University, Instituut voor de Nederlandse Taal, ADAPT, Ghent University, Trinity College Dublin, Universitat Pompeu Fabra, European Union of the Deaf, Fincons, Radboud University, mac.ie, Vlaams Gebarentaalcentrum, en de Universiteit van Gent.
+Dit model dat is gemaakt om gebarentaal te vertalen naar tekst en ook omgekeerd.
+Het model is ook getraind om 5 verschillende gebarentalen en 4 gesproken talen te herkennen.
+Deze gesproken talen zijn Engels, Nederlands, Iers en Spaans.
+De gebarentalen zijn het Vlaamse Gebarentaal, Nederlandse Gebarentaal, Ierse Gebarentaal, Spaanse Gebarentaal en de Britse Gebarentaal.
+Het project is al afgerond sinds december 2023 \autocite{shterionov-etal-2024-signon}.
+Hun pipeline, preprocessing en web-service is allemaal te vinden op hun github\footnote{\url{https://github.com/signon-project}}.
 
 
 
@@ -119,9 +127,9 @@ Dit zal de meeste tijd innemen van het onderzoek, namelijk 4 weken\figref{fig:ga
 Er zal een deep learning model worden gezocht dat al in staat is om gebarentaal te herkennen en om te zetten in tekst.
 Hierbij zal er dus gebruik gemaakt worden van transfer learning.
 Het startmodel zal gekozen worden op basis van de literatuurstudie.
-De modellen trainen zelf zal 3 weken duren en de laatste week zal dienen om de modellen te testen en te vergelijken\figref{fig:gantt_tijd}.
+Het model trainen zal 3 weken duren en de laatste week zal dienen om de modellen te testen en te vergelijken\figref{fig:gantt_tijd}.
 \subsection{Fase 4: Model optimalisatie}
-In de vierde fase van het onderzoek zal het getrainde model worden aangepast zodat het efficienter zal werken.
+In de vierde fase van het onderzoek zal het getrainde model worden aangepast zodat het effici{\"e}nter zal werken.
 Deze fase zal 4 weken duren\figref{fig:gantt_tijd}.
 Hier zal prunning en quantization worden toegepast om het model te optimaliseren voor mogelijk real-time gebruik.
 \subsection{Fase 5: Evaluatie \& Validatie}
