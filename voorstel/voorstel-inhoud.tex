@@ -27,7 +27,7 @@ Dit onderzoek richt zich op de inzet van AI-technologieën voor het herkennen en
   \item Hoe kan zo'n systeem de communicatie en inclusie van de dove gemeenschap verbeteren?
 \end{enumerate}
 
-De structuur van VGT is complex, met variaties in handvorm, beweging en gezichtsuitdrukkingen \autocite{469340}. Geavanceerde algoritmen zoals deep learning en convolutionele neurale netwerken (CNN) zijn veelbelovend voor gebarentaalherkenning \autocite{10.52756/ijerr.2023.v34spl.004}\autocite{10.17485/ijst/v16i45.2583}. Met camera's op smartphones kunnen systemen worden ontwikkeld die gebaren in real-time omzetten naar tekst.
+De structuur van VGT is complex door de variaties in handvorm, beweging en gezichtsuitdrukkingen \autocite{469340}. Geavanceerde algoritmen zoals deep learning en convolutionele neurale netwerken (CNN) zijn veelbelovend voor gebarentaalherkenning \autocite{10.52756/ijerr.2023.v34spl.004}\autocite{10.17485/ijst/v16i45.2583}. Met camera's op smartphones kunnen systemen worden ontwikkeld die gebaren in real-time omzetten naar tekst.
 
 Deze technologische vooruitgang kan de toegankelijkheid en inclusie van de dove gemeenschap aanzienlijk verbeteren. Dit document onderzoekt de huidige stand van zaken van AI-gestuurde VGT-herkenning, en de toepassingen en uitdagingen van dergelijke systemen.
 \section{Literatuurstudie}%
@@ -41,12 +41,11 @@ Het is een volwaardige taal met een eigen grammatica en lexicon, die verschilt v
 VGT maakt gebruik van handgebaren, gezichtsuitdrukkingen en lichaamstaal om betekenis over te brengen. 
 Het is belangrijk op te merken dat VGT, net als gesproken talen, regionale variaties kent, wat de complexiteit van de vertaling vergroot \autocite{469340}.
 Dit betekent dus dat het model dat wordt ontwikkeld rekening moet houden met deze regionale variaties.
-Er zijn in totaal 5 variaties op het VGT, deze zijn ook regionaal gebonden\autocite{469340}.
+Er zijn in totaal 5 variaties op het VGT, deze zijn regionaal gebonden \autocite{469340}.
 De variaties zijn: West-Vlaanderen, Oost-Vlaanderen, Antwerpen, Limburg en Vlaams-Brabant.
 Het kan echter ook zijn dat bepaalde gebaren in de ene regio hetzelfde zijn als in een andere regio.
-Maar de variatie in deze regionale gebaren is niet direct significant.
 Uit studies van \textcite{469340} blijkt dat 72.3\% van de gebaren in de verschillende regio's identieke verwante of verwante gebaren tonen.
-Hierbij blijkt zelf de antwerpse variant de centraalste variant te zijn\autocite{469340}.
+Hierbij blijkt zelf de antwerpse variant de centraalste variant te zijn \autocite{469340}.
 Maar het is wel belangrijk om hier rekening mee te houden.
 
 
@@ -55,28 +54,27 @@ Maar het is wel belangrijk om hier rekening mee te houden.
 
 Het verzamelen van data is een cruciale stap in het ontwikkelen van een AI-model voor VGT-herkenning.
 Er zijn verschillende manieren om data te verzamelen, waaronder het gebruik van bestaande datasets en het opnemen van nieuwe datasets met behulp van camera's.
-Een van de meest gebruikte datasets voor VGT-herkenning is de VGT-dataset van de Universiteit van Gent\autocite{VGT_Signbank}.
+Een van de meest gebruikte datasets voor VGT-herkenning is de VGT-dataset van de Universiteit van Gent \autocite{VGT_Signbank}.
 Voor deze dataset moet toegang aangevraagd worden aan de Universiteit van Gent.
-Een andere optie voor deze dataset is om hun website te scrapen en zelf te labelen.
-Er zijn ook andere datasets beschikbaar, zoals het VGT-corpus van de Universiteit van Leuven\textcite{Corpus_VGT}.
+Er zijn ook andere datasets beschikbaar, zoals het VGT-corpus van de Universiteit van Leuven \textcite{Corpus_VGT}.
 Deze datasets bevatten video-gesprekken van VGT-gebaren.
-Er is ook een gedeelde met de gelabelde data en annotaties van de video's.
-Hier zijn ze echter nog aan aan het werken en vereist speciale toegang\autocite{Over_het_Corpus_VGT}.
+Er is ook een gedeelte met de gelabelde data en annotaties van de video's.
+Hier zijn ze echter nog aan aan het werken en dat vereist speciale toegang \autocite{Over_het_Corpus_VGT}.
 Een andere optie is om zelf een dataset te maken door VGT-gebaren op te nemen met behulp van een camera.
 Dit kan gedaan worden door een camera te gebruiken die is aangesloten op een computer of door een smartphone te gebruiken.
-Er kan getwijfeld worden over de grote van deze dataset maar onderzoek van \textcite{Coster2023} toont aan dat een van deze dataset groot genoeg is om een model te trainen met goede accuratie.
-Een ander probleem dat zich kan voordoen is dat de data niet in het juiste formaat is voor een model effici{\"e}nt of goed te trainen\autocite{Vandeghinste2024}.
+Er kan getwijfeld worden over de grootte van deze dataset maar onderzoek van \textcite{Coster2023} toont aan dat {\'e}{\'e}n van deze datasets groot genoeg is om een model te trainen met goede accuratie.
+Een ander probleem dat zich kan voordoen is dat de data niet in het juiste formaat is om een model effici{\"e}nt of goed te trainen\autocite{Vandeghinste2024}.
 
 
 \subsection{Modeltraining}
 \label{subsec:modeltraining}
 Voor het model te trainen zal er gebruik gemaakt worden van deep learning.
 Er zijn meerdere mogelijke manieren om modellen te trainen. 
-Een van de meest gebruikte type modellen voor Gebarentaal-herkenning is het convolutionele neurale netwerk (CNN).
-Dit type model is al reeds effectief gebleken in het halen van handgebaren en gezichtsuitdrukkingen in gebarentaal video's\autocite{10.17485/ijst/v16i45.2583}.
+E{\'e}n van de meest gebruikte type modellen voor Gebarentaal-herkenning is het convolutionele neurale netwerk (CNN).
+Dit type model is al effectief gebleken in het halen van handgebaren en gezichtsuitdrukkingen uit gebarentaal video's \autocite{10.17485/ijst/v16i45.2583}.
 Een optie binnenin convolutionele neurale netwerken is transfer learning.
-Dit is een techniek waarbij een model wordt getraind op een grote dataset en vervolgens wordt aangepast aan een specifieke of verwante taak\autocite{torrey2010transfer}.
-Meestal gebruiken ze hiervoor al een bestaand model dat al getraind.
+Dit is een techniek waarbij een model wordt getraind op een grootte dataset en vervolgens wordt aangepast aan een specifieke of verwante taak \autocite{torrey2010transfer}.
+Meestal gebruiken ze hiervoor al een bestaand model dat al getraind is.
 Er zijn meerdere modellen waarbij deze techniek zou toegepast kunnen worden.
 Het zou kunnen op een gewoon image classification model zoals VGG16 of ResNet.
 VGG16 is een model gemaakt door Visual Geometry Group van de Universiteit van Oxford.
@@ -88,7 +86,7 @@ ResNet, of Residual Network, is een ander baanbrekend model dat is ontwikkeld do
 Net zoals VGG16 is ResNet een model dat goed presteert op image classification en zou dus ook goed kunnen presteren op VGT-herkenning.
 Het werd ook al eerder gebruikt voor gebarentaalherkenning in \textcite{Wang2022}.
 Het zou ook kunnen om transfer learning toe te passen op een model dat zelf al gebarentaal herkent.
-Hiervan is een mooi opensource model van het SingOn-project\autocite{SingOn}. 
+Hiervan is een mooi opensource model van het SingOn-project \autocite{SingOn}. 
 Dit was een samenwerking tussen Tilburg University, Instituut voor de Nederlandse Taal, ADAPT, Ghent University, Trinity College Dublin, Universitat Pompeu Fabra, European Union of the Deaf, Fincons, Radboud University, mac.ie, Vlaams Gebarentaalcentrum, en de Universiteit van Gent.
 Dit model dat is gemaakt om gebarentaal te vertalen naar tekst en ook omgekeerd.
 Het model is ook getraind om 5 verschillende gebarentalen en 4 gesproken talen te herkennen.
@@ -120,7 +118,7 @@ Voor deze fase een periode van 2 weken duren\figref{fig:gantt_tijd}.
 Voor het Preprocessen van de data wordt er weer een werktijd van 2 weken voorzien\figref{fig:gantt_tijd}.
 Hier zullen de datasets worden geanalyseerd en gezuiverd.
 De datasets zullen samengevoegd worden tot één dataset en worden opgedeeld in een trainingsset en een testset.
-Het zal ook alle data juist labelen als dit nog niet correct is gebeurd.
+Dan zal ook alle data juist gelabeld worden als dit nog niet correct is gebeurd.
 \subsection{Fase 3: Modeltraining}
 In de derde fase van het onderzoek zal het bestaand model worden geoptimaliseerd.
 Dit zal de meeste tijd innemen van het onderzoek, namelijk 4 weken\figref{fig:gantt_tijd}.
