@@ -5,7 +5,7 @@
 % andere student?
 % Zo ja, haal dan de tekst hieronder uit commentaar en pas aan.
 
-%\paragraph{Opmerking}
+%\\agraph{Opmerking}
 
 % Dit voorstel is gebaseerd op het onderzoeksvoorstel dat werd geschreven in het
 % kader van het vak Research Methods dat ik (vorig/dit) academiejaar heb
@@ -18,13 +18,13 @@
 
 In de hedendaagse samenleving is er een groeiende behoefte aan technologieën die de communicatie tussen doven en horenden vergemakkelijken. Een veelbelovende ontwikkeling is de real-time vertaling van Vlaamse Gebarentaal (VGT) naar tekst met behulp van kunstmatige intelligentie (AI) en computer vision. VGT, de taal van de Vlaamse dovengemeenschap, is een erkende taal met regionale variaties, wat de vertaling bemoeilijkt \autocite{vanmeerbergen2000simultane}.
 
-Dit onderzoek richt zich op de inzet van AI-technologieën voor het herkennen en vertalen van VGT-gebaren naar tekst om de communicatie en inclusie van de dove gemeenschap te bevorderen. De centrale vraag is: "Hoe kunnen AI-technologieën worden ingezet voor de real-time vertaling van Vlaamse Gebarentaal naar tekst?" We onderzoeken de volgende deelvragen:
+Dit onderzoek richt zich op de inzet van AI-technologieën voor het herkennen en vertalen van VGT-gebaren naar tekst om de communicatie en inclusie van de dove gemeenschap te bevorderen. De centrale vraag is: "Hoe kunnen reeds bestaand AI-technologieën worden geoptimaliseerd voor de vertaling van Vlaams Gebarentaal naar tekst?" We onderzoeken de volgende deelvragen:
 
 \begin{enumerate} 
   \item Welke AI-technologieën zijn beschikbaar voor gebarentaalherkenning en hoe effectief zijn deze al? 
   \item Hoe kunnen we verder bouwen op al bestaande gebarentaal herkenning? 
   \item Welke uitdagingen en beperkingen zijn er bij het ontwikkelen van een vertalingssysteem voor VGT? 
-  \item Hoe kan zo'n systeem de communicatie en inclusie van de dove gemeenschap verbeteren?
+  \item Hoe kan een AI-model worden geoptimaliseerd voor real-time vertaling van VGT naar tekst?
 \end{enumerate}
 
 De structuur van VGT is complex door de variaties in handvorm, beweging en gezichtsuitdrukkingen \autocite{469340}. Geavanceerde algoritmen zoals deep learning en convolutionele neurale netwerken (CNN) zijn veelbelovend voor gebarentaalherkenning \autocite{10.52756/ijerr.2023.v34spl.004}\autocite{10.17485/ijst/v16i45.2583}. Met camera's op smartphones kunnen systemen worden ontwikkeld die gebaren in real-time omzetten naar tekst.
@@ -36,7 +36,7 @@ Deze technologische vooruitgang kan de toegankelijkheid en inclusie van de dove 
 \subsection{Vlaamse Gebarentaal}
 \label{subsec:vgt}
 
-Het Vlaamse Gebarentaal (VGT) is een visuele taal die wordt gebruikt door de Vlaamse dovengemeenschap. 
+Vlaamse Gebarentaal (VGT) is een visuele taal die wordt gebruikt door de Vlaamse dovengemeenschap. 
 Het is een volwaardige taal met een eigen grammatica en lexicon, die verschilt van gesproken talen zoals Nederlands en Frans. 
 VGT maakt gebruik van handgebaren, gezichtsuitdrukkingen en lichaamstaal om betekenis over te brengen. 
 Het is belangrijk op te merken dat VGT, net als gesproken talen, regionale variaties kent, wat de complexiteit van de vertaling vergroot \autocite{469340}.
@@ -54,27 +54,31 @@ Maar het is wel belangrijk om hier rekening mee te houden.
 
 Het verzamelen van data is een cruciale stap in het ontwikkelen van een AI-model voor VGT-herkenning.
 Er zijn verschillende manieren om data te verzamelen, waaronder het gebruik van bestaande datasets en het opnemen van nieuwe datasets met behulp van camera's.
-Een van de meest gebruikte datasets voor VGT-herkenning is de VGT-dataset van de Universiteit van Gent \autocite{VGT_Signbank}.
-Voor deze dataset moet toegang aangevraagd worden aan de Universiteit van Gent.
-Er zijn ook andere datasets beschikbaar, zoals het VGT-corpus van de Universiteit van Leuven \textcite{Corpus_VGT}.
+Een van de meest gebruikte datasets voor VGT-herkenning is de VGT-dataset van de Universiteit Gent \autocite{VGT_Signbank}.
+Voor deze dataset moet toegang aangevraagd worden aan de Universiteit Gent.
+Er zijn ook andere datasets beschikbaar, zoals het VGT-corpus van de Universiteit van Leuven \autocite{Corpus_VGT}.
 Deze datasets bevatten video-gesprekken van VGT-gebaren.
 Er is ook een gedeelte met de gelabelde data en annotaties van de video's.
 Hier zijn ze echter nog aan aan het werken en dat vereist speciale toegang \autocite{Over_het_Corpus_VGT}.
 Een andere optie is om zelf een dataset te maken door VGT-gebaren op te nemen met behulp van een camera.
 Dit kan gedaan worden door een camera te gebruiken die is aangesloten op een computer of door een smartphone te gebruiken.
-Er kan getwijfeld worden over de grootte van deze dataset maar onderzoek van \textcite{Coster2023} toont aan dat {\'e}{\'e}n van deze datasets groot genoeg is om een model te trainen met goede accuratie.
+Er kan getwijfeld worden over de grootte van deze dataset maar onderzoek van \textcite{Coster2023} toont aan dat {\'e}{\'e}n van deze datasets groot genoeg is om een model te trainen met goede nauwkeurigheid.
 Een ander probleem dat zich kan voordoen is dat de data niet in het juiste formaat is om een model effici{\"e}nt of goed te trainen\autocite{Vandeghinste2024}.
 
 
-\subsection{Modeltraining}
+\subsection{Model keuze}
 \label{subsec:modeltraining}
 Voor het model te trainen zal er gebruik gemaakt worden van deep learning.
 Er zijn meerdere mogelijke manieren om modellen te trainen. 
 E{\'e}n van de meest gebruikte type modellen voor Gebarentaal-herkenning is het convolutionele neurale netwerk (CNN).
 Dit type model is al effectief gebleken in het halen van handgebaren en gezichtsuitdrukkingen uit gebarentaal video's \autocite{10.17485/ijst/v16i45.2583}.
+\\
+\\
 Een optie binnenin convolutionele neurale netwerken is transfer learning.
 Dit is een techniek waarbij een model wordt getraind op een grootte dataset en vervolgens wordt aangepast aan een specifieke of verwante taak \autocite{torrey2010transfer}.
 Meestal gebruiken ze hiervoor al een bestaand model dat al getraind is.
+\\
+\\
 Er zijn meerdere modellen waarbij deze techniek zou toegepast kunnen worden.
 Het zou kunnen op een gewoon image classification model zoals VGG16 of ResNet.
 VGG16 is een model gemaakt door Visual Geometry Group van de Universiteit van Oxford.
@@ -82,20 +86,24 @@ Het is een model dat goed presteert op image classification en zou dus ook goed 
 VGG16 wordt vaker gebruikt om transfer learning toe te passen.
 Zoals bijvoorbeeld in \textcite{9491631} waar ze VGG16 gebruiken om borstkanker te herkennen.
 Het werd zelf al gebruikt voor gebarentaalherkenning in \textcite{Abu-Jamie2022-ABUCOS-2}.
+\\
+\\
 ResNet, of Residual Network, is een ander baanbrekend model dat is ontwikkeld door Kaiming He.
 Net zoals VGG16 is ResNet een model dat goed presteert op image classification en zou dus ook goed kunnen presteren op VGT-herkenning.
 Het werd ook al eerder gebruikt voor gebarentaalherkenning in \textcite{Wang2022}.
-Het zou ook kunnen om transfer learning toe te passen op een model dat zelf al gebarentaal herkent.
+\\
+\\
+Een andere benadering is transfer learning met een model dat specifiek ontworpen is voor gebarentaalherkenning.
 Hiervan is een mooi opensource model van het SingOn-project \autocite{SingOn}. 
 Dit was een samenwerking tussen Tilburg University, Instituut voor de Nederlandse Taal, ADAPT, Ghent University, Trinity College Dublin, Universitat Pompeu Fabra, European Union of the Deaf, Fincons, Radboud University, mac.ie, Vlaams Gebarentaalcentrum, en de Universiteit van Gent.
-Dit model dat is gemaakt om gebarentaal te vertalen naar tekst en ook omgekeerd.
+\\
+\\
+Het SignOn-model is ontwikkeld om gebarentaal naar tekst en omgekeerd te vertalen.
 Het model is ook getraind om 5 verschillende gebarentalen en 4 gesproken talen te herkennen.
 Deze gesproken talen zijn Engels, Nederlands, Iers en Spaans.
 De gebarentalen zijn het Vlaamse Gebarentaal, Nederlandse Gebarentaal, Ierse Gebarentaal, Spaanse Gebarentaal en de Britse Gebarentaal.
 Het project is al afgerond sinds december 2023 \autocite{shterionov-etal-2024-signon}.
 Hun pipeline, preprocessing en web-service is allemaal te vinden op hun github\footnote{\url{https://github.com/signon-project}}.
-
-
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
@@ -110,30 +118,27 @@ Hun pipeline, preprocessing en web-service is allemaal te vinden op hun github\f
 \subsection{Fase 1: Data-acquisitie}
 In de eerste en meest cruciale fase van het onderzoek zal de benodigde data worden verzameld.
 Voor het verzamelen van de data zal gebruik worden gemaakt van verschillende bronnen.
-Deze bronnen zullen bestaan uit bestaande datasets, zoals de VGT-dataset van de Universiteit van Gent.
-Daarnaast zullen er ook nieuwe datasets worden gecreëerd door middel van het opnemen van VGT-gebaren met behulp van een camera.
-Deze datasets zullen worden gebruikt om het model te trainen en te valideren.
-Voor deze fase een periode van 2 weken duren\figref{fig:gantt_tijd}.
-\subsection{Fase 2: Preprocessing}
-Voor het Preprocessen van de data wordt er weer een werktijd van 2 weken voorzien\figref{fig:gantt_tijd}.
-Hier zullen de datasets worden geanalyseerd en gezuiverd.
-De datasets zullen samengevoegd worden tot één dataset en worden opgedeeld in een trainingsset en een testset.
-Dan zal ook alle data juist gelabeld worden als dit nog niet correct is gebeurd.
-\subsection{Fase 3: Modeltraining}
-In de derde fase van het onderzoek zal het bestaand model worden geoptimaliseerd.
+Deze bronnen zullen bestaan uit bestaande datasets, zoals de VGT-dataset van de Universiteit Gent.
+Deze datasets zullen worden gebruikt om het model te her-trainen en te valideren.
+Deze fase zal een periode van 2 weken innemen\figref{fig:gantt_tijd}.
+\subsection{Fase 2: Model keuze}
+In de tweede fase van het onderzoek zal er naar het beste bestaand model worden gezocht.
 Dit zal de meeste tijd innemen van het onderzoek, namelijk 4 weken\figref{fig:gantt_tijd}.
 Er zal een deep learning model worden gezocht dat al in staat is om gebarentaal te herkennen en om te zetten in tekst.
 Hierbij zal er dus gebruik gemaakt worden van transfer learning.
 Het startmodel zal gekozen worden op basis van de literatuurstudie.
-Het model trainen zal 3 weken duren en de laatste week zal dienen om het te testen en te vergelijken met het origineel model\figref{fig:gantt_tijd}.
-\subsection{Fase 4: Model optimalisatie}
-In de vierde fase van het onderzoek zal het getrainde model worden aangepast zodat het effici{\"e}nter zal werken.
-Deze fase zal 4 weken duren\figref{fig:gantt_tijd}.
-Hier zal prunning en quantization worden toegepast om het model te optimaliseren voor mogelijk real-time gebruik.
-\subsection{Fase 5: Evaluatie \& Validatie}
+Deze fase zal 2 weken duren.
+\subsection{Fase 3: Model optimalisatie}
+In de derde fase van het onderzoek zal het bestaand model worden aangepast zodat het effici{\"e}nter zal werken.
+Dit zal gebeuren door te analyseren welke methoden het bestaand model heeft en welke nieuwe technologieën hierop toegepast kunnen worden.
+Deze fase zal dus opgesplist worden in twee delen.
+Eerst zal er gekeken worden naar mogelijke optimalisaties zoals parameters van het model of het aantal en type lagen.
+In het tweede deel zal er gekeken worden naar hoe deze optimalisaties kunnen worden toegepast.
+Deze fase zal 6 weken duren\figref{fig:gantt_tijd}.
+\subsection{Fase 4: Evaluatie \& Validatie}
 In de laatste fase van het onderzoek zal het model worden geëvalueerd en gevalideerd.
 Deze fase zal 2 weken duren\figref{fig:gantt_tijd}.
-Het model zal worden getest op een nieuwe dataset en de resultaten zullen worden geanalyseerd.
+Het model zal worden getest op een test dataset en de resultaten zullen worden vergeleken met de resultaten van het oude model.
 Moesten er nog enige fouten zijn in het model zullen deze worden aangepast en zal het model opnieuw worden getest.
 
 \begin{figure}[h!]
