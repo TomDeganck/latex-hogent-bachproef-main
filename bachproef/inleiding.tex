@@ -5,46 +5,64 @@
 \chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
 \label{ch:inleiding}
 
-De inleiding moet de lezer net genoeg informatie verschaffen om het onderwerp te begrijpen en in te zien waarom de onderzoeksvraag de moeite waard is om te onderzoeken. In de inleiding ga je literatuurverwijzingen beperken, zodat de tekst vlot leesbaar blijft. Je kan de inleiding verder onderverdelen in secties als dit de tekst verduidelijkt. Zaken die aan bod kunnen komen in de inleiding~:
+De behoefte aan effectieve communicatie tussen dove en horende mensen is in de afgelopen jaren steeds groter geworden. 
+Gebarentaal is voor veel mensen in de doven en slechthorenden gemeenschap de primaire communicatievorm. 
+Het vertalen van gebarentaal naar tekst kan deze communicatiekloof overbruggen, en nieuwe technologieën, zoals deep learning, bieden kansen om dit proces te automatiseren en real-time te Maken. 
+Dit onderzoek richt zich op de toepassing van deep learning-modellen voor de real-time vertaling van een Gebarentaal naar tekst.
 
-\begin{itemize}
-  \item context, achtergrond
-  \item afbakenen van het onderwerp
-  \item verantwoording van het onderwerp, methodologie
-  \item probleemstelling
-  \item onderzoeksdoelstelling
-  \item onderzoeksvraag
-  \item \ldots
-\end{itemize}
+Het onderwerp van dit onderzoek is relevant gezien de noodzaak om technologieën te ontwikkelen die sociale inclusie bevorderen. 
+Doordat de samenleving steeds digitaler wordt, is het van groot belang om oplossingen te vinden die de communicatie tussen doven en horenden vergemakkelijken, zeker in contexten zoals scholen, werkplekken en openbare instellingen. 
+Dit onderzoek beoogt een diepgaand inzicht te verkrijgen in de mogelijkheden en beperkingen van automatische gebarentaalherkenningstechnologieën.
+
+De methodologie van dit onderzoek is gebaseerd op het gebruik van een pre-getraind deep learning model voor gebarentaalherkenning, met de focus op de implementatie van een efficiënte oplossing die geschikt is voor mobiele apparaten. 
+De keuze van het platform en de inzet van het model in een mobiele applicatie vormen kernaspecten van dit onderzoek. 
+Daarbij zal er bijzondere aandacht zijn voor de afweging tussen on-device en cloud-based deployment en de impact daarvan op latentie, prestaties en toegankelijkheid.
 
 \section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}%
 \label{sec:probleemstelling}
 
-Uit je probleemstelling moet duidelijk zijn dat je onderzoek een meerwaarde heeft voor een concrete doelgroep. De doelgroep moet goed gedefinieerd en afgelijnd zijn. Doelgroepen als ``bedrijven,'' ``KMO's'', systeembeheerders, enz.~zijn nog te vaag. Als je een lijstje kan maken van de personen/organisaties die een meerwaarde zullen vinden in deze bachelorproef (dit is eigenlijk je steekproefkader), dan is dat een indicatie dat de doelgroep goed gedefinieerd is. Dit kan een enkel bedrijf zijn of zelfs één persoon (je co-promotor/opdrachtgever).
+In veel situaties kunnen doven en slechthorenden niet rekenen op geschikte hulpmiddelen voor communicatie in Vlaamse Gebarentaal.
+De ontwikkeling van een betrouwbare en efficiënte technologie voor het vertalen van gebarentaal naar tekst kan een belangrijke bijdrage leveren aan het verbeteren van de communicatie tussen verschillende groepen binnen de samenleving. 
+Het probleem dat dit onderzoek adresseert, is het creëren van een real-time vertaalmodel voor Vlaamse Gebarentaal naar tekst dat goed presteert op mobiele apparaten, waarbij rekening wordt gehouden met de technische en praktische beperkingen van dergelijke apparaten.
+
+De doelgroep van dit onderzoek bestaat voornamelijk uit gebruikers van gebarentaal, zoals doven en slechthorenden, en organisaties die hen ondersteunen. 
+Dit kan zowel gaan om onderwijsinstellingen als openbare voorzieningen die communicatie met doven vergemakkelijken. 
+Het doel van het onderzoek is om een proof-of-concept te ontwikkelen dat als basis kan dienen voor verdere toepassingen in de praktijk.
 
 \section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}%
 \label{sec:onderzoeksvraag}
 
-Wees zo concreet mogelijk bij het formuleren van je onderzoeksvraag. Een onderzoeksvraag is trouwens iets waar nog niemand op dit moment een antwoord heeft (voor zover je kan nagaan). Het opzoeken van bestaande informatie (bv. ``welke tools bestaan er voor deze toepassing?'') is dus geen onderzoeksvraag. Je kan de onderzoeksvraag verder specifiëren in deelvragen. Bv.~als je onderzoek gaat over performantiemetingen, dan 
+De centrale onderzoeksvraag in dit onderzoek is:
+\begin{quote}
+    Hoe kan een deep learning-model voor Vlaamse Gebarentaal effectief worden ingezet voor real-time vertaling naar tekst op mobiele apparaten, rekening houdend met de beperkingen van latentie, prestaties en toegankelijkheid?
+\end{quote}
 
-\section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}%
+Daarnaast worden de volgende deelvragen geformuleerd:
+\begin{itemize}
+  \item Wat zijn de technische eisen voor het ontwikkelen van een deep learning-model dat gebarentaal naar tekst vertaalt?
+  \item Welke deployment-opties zijn het meest geschikt voor real-time verwerking op mobiele apparaten?
+  \item Wat zijn de prestaties van het model in termen van latentie en nauwkeurigheid, zowel bij on-device als cloud-gebaseerde implementaties?
+\end{itemize}
+
+\section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}
 \label{sec:onderzoeksdoelstelling}
 
-Wat is het beoogde resultaat van je bachelorproef? Wat zijn de criteria voor succes? Beschrijf die zo concreet mogelijk. Gaat het bv.\ om een proof-of-concept, een prototype, een verslag met aanbevelingen, een vergelijkende studie, enz.
+Het doel van dit onderzoek is het ontwikkelen van een proof-of-concept dat in staat is om Vlaamse Gebarentaal real-time te vertalen naar tekst op een mobiel apparaat. 
+Dit moet gebeuren door het gebruik van een deep learning-model dat vooraf is getraind en geoptimaliseerd voor gebruik op een mobiele omgeving. 
+De succescriteria voor dit onderzoek zijn:
+\begin{itemize}
+  \item Het model kan gebarentaal vertalen naar tekst.
+  \item Het systeem werkt met lage latentie en in real-time.
+  \item Het model is efficiënt qua gebruik van rekenkracht en opslag op mobiele apparaten.
+\end{itemize}
 
-\section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}%
+\section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}
 \label{sec:opzet-bachelorproef}
-
-% Het is gebruikelijk aan het einde van de inleiding een overzicht te
-% geven van de opbouw van de rest van de tekst. Deze sectie bevat al een aanzet
-% die je kan aanvullen/aanpassen in functie van je eigen tekst.
 
 De rest van deze bachelorproef is als volgt opgebouwd:
 
-In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein, op basis van een literatuurstudie.
+In Hoofdstuk~\ref{ch:stand-van-zaken} wordt de stand van zaken binnen het onderzoeksdomein besproken, waarbij bestaande technologieën en benaderingen voor gebarentaalherkenning worden behandeld.
 
-In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
+In Hoofdstuk~\ref{ch:methodologie} wordt de gebruikte methodologie beschreven, met specifieke aandacht voor de keuze van het deep learning-model, de technische implementatie en de deployment-strategieën.
 
-% TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
-
-In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
+In Hoofdstuk~\ref{ch:conclusie} worden de conclusies getrokken en wordt een antwoord geformuleerd op de onderzoeksvraag. Tevens wordt er een blik geworpen op mogelijke verbeteringen en toekomstig onderzoek op dit gebied.
