@@ -1,0 +1,197 @@
+\chapter{Inferentie op een desktopomgeving}
+\label{ch:inferentie}
+
+Voordat een machine learning-model effectief kan worden ingezet op een edge device, is het van essentieel belang om het model eerst uitvoerig te testen op een reguliere desktop- of laptopomgeving.
+Deze stap fungeert als een belangrijke tussenfase in het ontwikkelingsproces, omdat edge devices—zoals embedded systemen, mobiele telefoons of microcontrollers—vaak beschikken over aanzienlijk minder rekenkracht, geheugen en energiecapaciteit dan conventionele computers.
+Door het model eerst lokaal te testen, kunnen potentiële fouten of inefficiënties vroegtijdig worden opgespoord, zonder de bijkomende beperkingen van een edgeomgeving.
+\\
+\\
+Dergelijke tests maken het mogelijk om inzicht te krijgen in de prestaties, nauwkeurigheid en robuustheid van het model onder realistische omstandigheden.
+Bovendien kunnen al in deze fase optimalisaties worden doorgevoerd, zoals modelcompressie, kwantisatie of het herstructureren van de architectuur voor betere compatibiliteit met edgehardware.
+Deze voorbereidingen besparen uiteindelijk veel tijd en middelen wanneer het model daadwerkelijk wordt overgezet naar een edge device, en verhogen de kans op een succesvolle, stabiele implementatie.
+\\
+\\
+De manier om inferentie uit te voeren is om een reeks frames te verwerken, waarbij de temporele context van gebarentaal wordt benut. Dit vereist specifieke stappen voor inputvoorbereiding en modeluitvoering.
+
+
+\section{Inferentie op reeks van frames}
+\label{sec:inferentie-reeks-frames}
+
+Door een reeks frames te verwerken in plaats van slechts één frame per keer, kan het Signformer model de temporele context van gebarentaal beter begrijpen.
+Dit leidt tot een significante verbetering van de nauwkeurigheid van de vertalingen, omdat het model in staat is om de dynamiek van gebaren over tijd te vangen.
+\\
+\\
+De implementatie van deze aanpak vereist enkele aanpassingen in de manier waarop de input wordt voorbereid, hoe het model wordt aangeroepen, en hoe de output wordt gegenereerd.
+Er zijn ook enkele aanpassingen gedaan aan het model zelf waardoor het model veel flexibeler is in het verwerken van de input.
+% De inferentie maakt ook gebruik van een sliding window benadering, waarbij een sequentie van frames wordt genomen en de output wordt gegenereerd voor die specifieke sequentie.
+% Dit betekent dat het model niet alleen kijkt naar het huidige frame, maar ook een aantal voorgaande frames om de context te begrijpen.
+% Hierdoor zal het model een continue stroom van vertalingen genereren, die vervolgens kunnen worden samengevoegd tot een volledige zin of tekst.
+\subsection{Aanpassing aan het Model}
+\label{sec:aanpassing-model-latex}
+
+Modelaanpassingen omvatten voornamelijk configuratie voor GPU-gebruik en het aanpassen van het interne batching om reeksen frames te verwerken in de encoder en decoder.
+
+\subsection{Sequentie klaarmaken voor het model}
+\label{sec:sequentie-klaarmaken-latex}
+
+Een reeks geëxtraheerde frame features moet worden omgezet naar een formaat dat het model begrijpt (een batch PyTorch tensors).
+Een functie zoals \texttt{prepare\_sequence\_batch} voert dit uit. 
+Kernstappen omvatten:
+\begin{itemize}
+    \item Stapelen van features en omzetten naar tensors:
+    \begin{lstlisting}
+        sgn_features = np.stack(sgn_features_list, axis=0) # [seq_len, feature_dim]
+        sgn_features = np.expand_dims(sgn_features, axis=0) # [1, seq_len, feature_dim]
+        sgn_tensor = torch.from_numpy(sgn_features).float()
+    \end{lstlisting}
+    \item Verplaatsen naar het juiste device (CPU/GPU).
+    \item Aanmaken van een masker om padding te negeren.
+    \item Creëren van een minimaal batch-object dat de verwachte model-inputstructuur nabootst voor inferentie.
+\end{itemize}
+
+De feature-extractie wordt gedaan met al een reeds bestaand model.
+Omdat we niet weten hoe de frames precies zijn gepreprocessed, is het belangrijk om de feature-extractie te doen met een model dat dezelfde preprocessing heeft als het model dat we gaan gebruiken voor inferentie.
+Hierbij zijn er meerdere mogelijkheden getest geweest zoals ResNet34, ResNet50, en EfficientNet.
+Hierbij is ResNet34 gekozen omdat deze de beste resultaten gaf in de inferentie zowel op snelheid als nauwkeurigheid. 
+
+\subsection{Gedetailleerde Inferentie Uitvoering}
+\label{sec:gedetailleerde-inferentie}
+
+De inferentie wordt uitgevoerd in een functie (bv. \texttt{run\_sequence\_inference}) met het geprepareerde batch-object. 
+Dit gebeurt in een context die gradiëntbereken\-ing uitschakelt voor efficiëntie:
+
+\begin{lstlisting}
+with torch.no_grad():
+    decoded_gloss_sequences_ids, stacked_txt_output_ids, stacked_attention_scores = model.run_batch(
+        batch=inference_batch,
+        recognition_beam_size=args.rec_beam_size, # Voorbeelden van parameters
+        translation_beam_size=args.trans_beam_size,
+        # ... andere parameters ...
+    )
+\end{lstlisting}
+
+De \texttt{model.run\_batch} methode voert de forward pass uit (encoder, decoders). 
+Parameters zoals 'beam\_size' beïnvloeden de zoekstrategie voor de meest waarschijnlijke output. 
+De methode retourneert de identificatiecodes van de voorspelde gloss- en tekstsequenties, en optioneel aandachtsscores.
+Deze identificatiecodes worden vervolgens omgezet naar leesbare zinnen met behulp van vocabulaire objecten (bv. \texttt{gls\_vocab}, \texttt{txt\_vocab}):
+\begin{lstlisting}
+    decoded_gloss_sentences = gls_vocab.arrays_to_sentences(decoded_gloss_sequences_ids)
+\end{lstlisting}
+
+\section{Sequentie-gebaseerde Inferentie met Camera Input}
+\label{sec:sequentie-inferentie-camera}
+
+Dit gedeelte beschrijft een implementatie waarbij sequentie-inferentie live wordt uitgevoerd met een camerafeed.
+
+\subsection{Argumenten Parsen en Initialisatie}
+\label{sec:main-args-init-latex}
+
+Argumenten worden doorgegeven om het gedrag te configureren, zoals het gebruik van de GPU en de sequentielengte:
+\begin{lstlisting}
+parser = argparse.ArgumentParser(...)
+parser.add_argument("--gpu", action="store_true", help="Use GPU")
+parser.add_argument("--sequence_length", type=int, default=100, help="Frames per sequence")
+# ... andere argumenten ...
+args = parser.parse_args()
+\end{lstlisting}
+De feature extractor en de camera worden geïnitialiseerd:
+\begin{lstlisting}
+feature_extractor = IntegratedFeatureExtractor(sgn_dim=sgn_dim, use_cuda=use_cuda)
+cap = cv2.VideoCapture(args.camera_id)
+\end{lstlisting}
+
+\subsection{De Hoofd Inferentie Loop}
+\label{sec:main-loop-latex}
+
+Een continue lus leest frames van de camera. Features worden geëxtraheerd en verzameld:
+\begin{lstlisting}
+collected_features = []
+while cap.isOpened():
+    ret, frame = cap.read()
+    if not ret:
+        # Error handling ...
+        continue
+
+    features = feature_extractor.extract(frame)
+    if features is not None:
+        collected_features.append(features)
+
+    # Weergave op frame (status, resultaten) ...
+    cv2.imshow('Sign Language Translation', display_frame)
+
+    # Inferentie trigger
+    if len(collected_features) >= args.sequence_length:
+        print("Running inference...")
+        inference_batch = prepare_sequence_batch(collected_features, ...)
+        decoded_glosses, translated_text, attention_scores = run_sequence_inference(model, inference_batch, ...)
+
+        # Resultaten verwerken en bufferen...
+
+        collected_features = [] # Wis verzamelde features
+\end{lstlisting}
+Wanneer voldoende frames zijn verzameld, wordt de sequentie voorbereid en wordt de inferentie uitgevoerd. De resultaten worden getoond op het camerabeeld. De lus stopt bij een toetsaanslag (bv. 'q'):
+\begin{lstlisting}
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+\end{lstlisting}
+
+\subsection{Afsluiting}
+\label{sec:main-afsluiting-latex}
+
+Na het stoppen van de lus wordt de camera vrijgegeven en worden vensters gesloten:
+\begin{lstlisting}
+cap.release()
+cv2.destroyAllWindows()
+\end{lstlisting}
+De code wordt gestart via de standaard \texttt{if \_\_name\_\_ == "\_\_main\_\_":} constructie.
+
+\section{Resultaten}
+\label{sec:inferentie-resultaten}
+De resultaten van de inferentie zijn veelbelovend.
+Het model kan een reeks aan frames verwerken en de bijbehorende gebaren vertalen naar tekst.
+De nauwkeurigheid van de vertalingen is laag doordat we niet weten op welke manier de frames zijn gepreprocessed.
+De vertaling is dus niet representatief voor de werkelijke vertalingen.
+Echter is de snelheid en de tijd die het kost om een sequentie te verwerken wel representatief.
+\\
+\\
+Een groot knelpunt in de inferentie is het inladen van alle verschillende componenten van het model.
+Een ander groot knelpunt in de inferentie is de manier van preprocessing van de frames.
+Hoe complexer het preprocessing algoritme, hoe meer tijd het kost om de frames te verwerken.
+De resultaten zijn gegenereerd met ResNet34 als preprocessing-algoritme en een batch size van 32, gelijk aan die van de training.
+\\
+\\
+Hier ziet U de resultaten van de inferentie \ref{tab:inferentie-resultaten}
+\begin{table}
+    \begin{tabular}{|l||c|c|c||}
+        \hline
+        \textbf{Parameter} & \textbf{Min} & \textbf{Gemiddelde} & \textbf{Max} \\
+        \hline
+        Frame verwerkingstijd (per loop iteratie) & 0.1846s & 0.3360s & 0.8462s \\
+        \hline
+        Gemiddelde frame rate & 2.98 FPS & 2.98 FPS & 2.98 FPS \\
+        \hline
+        Feature extractie tijd (per frame) & 0.1745s & 0.3004s & 0.5006s \\
+        \hline
+        Batch voorbereidingstijd (per sequentie) & 0.0000s & 0.0010s & 0.0021s \\
+        \hline
+        Model inferentie tijd (per sequentie) & 0.0228s & 0.0587s & 0.1315s \\
+        \hline
+        Volledige sequentie verwerkingstijd (van begin tot einde) & 6.8808s & 11.0014s & 14.9258s \\
+        \hline
+    \end{tabular}
+    \caption{Resultaten van de inferentie op een reeks van frames.}
+    \label{tab:inferentie-resultaten}
+    \vspace{1mm}
+    {\tiny Resultaten zijn berekent op 69 batches van 32 frames.}
+\end{table}
+\subsection{Problemen tijdens de Inferentie}
+\label{sec:inferentie-problemen}
+Tijdens de inferentie zijn er enkele problemen opgetreden die de prestaties en nauwkeurigheid van het model hebben beïnvloed.
+Gebarentaal werkt niet opdezelfde manier als gesproken taal.
+Bij gebarentaal is het een reeks aan gebaren die samen een zin vormen.
+Het is dus niet altijd duidelijk wanneer een reeks aan gebaren eindigt en een nieuwe begint.
+Dit kan leiden tot problemen bij het verwerken van de sequenties.
+Waarbij er nu bij de inferentie een vaste sequentie lengte wordt gebruikt, zou het beter zijn om een dynamische sequentie lengte te gebruiken.
+Dit zou betekenen dat het model zelf kan bepalen wanneer een sequentie eindigt en een nieuwe begint.
+Het ander groot probleem dat al eerder is aangekaart is het probleem van de preprocessing van de frames.
+Dit is een groot probleem omdat het model niet weet hoe de frames zijn gepreprocessed en dus de vertalingen niet representatief zijn voor de werkelijke vertalingen.

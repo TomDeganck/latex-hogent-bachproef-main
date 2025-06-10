@@ -1,0 +1,84 @@
+\chapter{Implementatie op Android}
+\label{ch:androidSysteem}
+\section{Inleiding}
+\label{sec:inleiding-android}
+In dit hoofdstuk wordt de implementatie van het model op een Android-systeem besproken.
+De implementatie is gedaan met behulp van de Android Studio IDE en de Android SDK.
+Dit gebeurt in de programeertaal Kotlin.
+
+\section{Voorbereiding voor Inferentie op Android}
+\label{sec:voorbereiding-android-inferentie}
+
+Voordat het AI-model voor gebarentaalvertaling effectief kan worden ingezet voor inferentie binnen een Android-applicatie, zijn specifieke voorbereidende stappen vereist die verband houden met het Android-platform en de integratie van machine learning modellen. 
+Deze stappen zorgen voor de benodigde toegang tot hardware, de correcte modelformaten en de integratie binnen de applicatiestructuur. 
+De belangrijkste voorbereidingen omvatten het volgende:
+
+\subsection{Verkrijgen van de benodigde permissies}
+\label{subsec:permissies-aanvragen}
+
+Om video van de camera te kunnen vastleggen voor gebarentaalherkenning, heeft de Android-applicatie expliciete toestemming van de gebruiker nodig. 
+Dit vereist configuratie op twee niveaus:
+\begin{itemize}
+    \item \textbf{Manifest Declaratie:} De benodigde permissie om de camera te gebruiken (\texttt{android.permission.CAMERA}) moet worden gedeclareerd in het \texttt{AndroidManifest.xml} bestand van de applicatie. 
+    Dit informeert het systeem dat de applicatie deze functionaliteit vereist.
+    \item \textbf{Runtime Permissie Aanvraag:} Voor Android-versies 6.0 (API niveau 23) en hoger, moeten gevaarlijke permissies, waaronder cameratoegang, tijdens runtime expliciet aan de gebruiker worden gevraagd. 
+    De applicatie moet logica implementeren om de huidige status van de permissie te controleren, de gebruiker om toestemming te vragen indien nodig, en correct om te gaan met het scenario waarin de gebruiker de permissie weigert.
+\end{itemize}
+Zonder de juiste cameratoegang kan de applicatie geen videoframes vastleggen en bijgevolg geen inferentie uitvoeren.
+
+\subsection{Model Conversie en Optimalisatie}
+\label{subsec:model-conversie}
+
+Het getrainde AI-model, dat mogelijk oorspronkelijk in het framework van PyTorch is ontwikkeld, moet worden omgezet naar een formaat dat efficiënt kan worden gebruikt op mobiele apparaten met beperkte rekenkracht, namelijk PyTorch Mobile.
+\begin{itemize}
+    \item \textbf{Model Exporteren:} Het getrainde PyTorch-model moet worden geëxporteerd naar een intermediair formaat, vaak via tracing of scripting, dat compatibel is met mobiele conversietools.
+    \item \textbf{Conversie naar PyTorch Mobile:} Het geëxporteerde model wordt vervolgens geconverteerd naar het doelformaat (PyTorch Mobile). 
+    Dit proces omvat vaak optimalisaties zoals kwantisatie (reduceren van de precisie van de modelgewichten) om de modelgrootte te verkleinen en de inferentiesnelheid te verhogen, wat cruciaal is voor mobiele implementaties.
+    \item \textbf{Bestandsvoorbereiding:} Het geconverteerde modelbestand (bijvoorbeeld een `.ptl` of geoptimaliseerd PyTorch Mobile bestand) en de bijbehorende vocabulaire bestanden moeten worden voorbereid en gebundeld met de Android-applicatie, vaak opgeslagen in de 'assets' of 'raw' resources folder van het Android-project.
+\end{itemize}
+Deze conversie- en optimalisatiestap is essentieel voor het succesvol draaien van het model op de hardware van een Android-apparaat.
+\subsubsection{Model Exporteren}
+\label{subsubsec:model-exporteren}
+Voor de conversie naar PyTorch Mobile moet het model worden geëxporteerd naar een formaat dat geschikt is voor conversie.
+Hierbij is het belangrijk dat alle mogelijke uitkomsten van het model worden vastgelegd.
+Dit betekent dus als er een None-waarde wordt teruggegeven dit veranderd moet worden naar een lege Tensor.
+Dit komt doordat de code die de conversie uitvoert niet kan omgaan met None-waarden.
+\\
+\\
+Als we \textbf{jit.trace} gebruiken om het model te exporteren, moeten we ook een voorbeeldinvoer opgeven die de vorm en het type van de invoer van het model simuleert.
+Dit zorgt er echter voor dat het model niet dynamisch is en dat het model niet kan omgaan met verschillende invoerformaten.
+Om dit probleem te verhelpen, is het beter om \textbf{torch.jit.script} te gebruiken.
+Dit maakt het mogelijk om de modelcode te analyseren en een scriptversie van het model te genereren die kan omgaan met verschillende invoerformaten.
+Deze houdt ook rekening met mogelijke if statements in de code.
+Dit is belangrijk voor als het model ook andere paden zou moeten volgen, zodat deze ook berekend zijn.
+\\
+\\
+Om ervoor te zorgen dat alle dynamische aspecten van het model correct worden vastgelegd, is het belangrijk om de juiste invoerformaten en -types te gebruiken tijdens het scriptproces.
+Dit betekent dus dat bij elke functie waar het type niet goed gespecifi{\"e}erd is en anders kan g{\"e}intreperteerd worden, dit moet worden aangepast.
+Dus de volgende stap is de code klaarmaken voor het scriptingprocess. Dit bevat elke variable en elke mogelijke stap die genomen kan worden duidelijk te specifieren.
+
+\subsubsection{Resultaten conversie}
+\label{subsubsec:resultaten-conversie}
+De conversie van het model naar PyTorch Mobile resulteert in een bestand dat geoptimaliseerd is voor gebruik op mobiele apparaten.
+Dit bestand bevat de gewichten en architectuur van het model, maar is geconfigureerd om efficiënt te draaien op de beperkte rekenkracht en geheugen van mobiele apparaten.
+De file zal echter groter zijn dan het originele model.
+Dit komt doordat de file nu ook de volledige architectuur van het model bevat.
+Ook de rekenlogica van het model zitten hierin samen met gespecialiseerde bytecode voor effici{\"e}nte uitvoering.
+Het betekent dus waar we in hoofdstuk \ref{sec:training} nog het aantal lagen van het model moesten meegeven en andere parameters, dat dit nu niet meer nodig is.
+Het model kan nu ook niet meer verder getraind worden.
+Dit zorgt er echter wel voor dat het model bijna direct ingeladen kan worden en dus de tijd die bij de computer infrentie het nodig had niet meer nodig is.
+In dit onderzoek is het echter niet gelukt om het model om te zetten naar een formaat dat geschikt is voor edge devices.
+Dit komt doordat het model te complex is en veel custom lagen bevat die niet ondersteund worden door PyTorch Mobile.
+Wat er dan ook voor zorgt dat het niet makkelijk omzetbaar is naar een ander formaat zoals TensorFlow Lite.
+\section{Integratie binnen de Android-applicatie}
+\label{subsec:integratie-android}
+
+Het geconverteerde model en de benodigde hulpmiddelen moeten correct worden geïntegreerd binnen de architectuur van de Android-applicatie:
+\begin{itemize}
+    \item \textbf{Afhankelijkheden Toevoegen:} De benodigde bibliotheken voor het uitvoeren van PyTorch Mobile modellen op Android moeten worden toegevoegd aan de build.gradle bestanden van het project.
+    \item \textbf{Model Laden en Initialiseren:} Code moet worden geïmplementeerd binnen de Android-applicatie om het geconverteerde modelbestand van de resources te laden en de inferentie-engine te initialiseren.
+    \item \textbf{Camera Integratie:} De camera-API van Android (CameraX) moet worden gebruikt om videoframes vast te leggen. 
+    Deze frames moeten vervolgens in het juiste formaat worden aangeleverd aan de invoerlaag van het geladen AI-model.
+    \item \textbf{Verwerking van Model Output:} Logica is vereist om de uitvoer van het model te verwerken. 
+    Dit omvat het interpreteren van de numerieke output aan de hand van de geladen vocabulaires en het weergeven van de vertaalde tekst op de gebruikersinterface van de applicatie.
+\end{itemize}

@@ -1,14 +1,7 @@
 % Encoding: UTF-8
-@book{Ahn_Jang_Chung_Korea_Advanced_Institute_of_Science_and_Technology_2023, 
-  type={journal-article}, 
-  title={SLOWFAST NETWORK FOR CONTINUOUS SIGN LANGUAGE RECOGNITION}, 
-  url={https://arxiv.org/pdf/2309.12304}, 
-  journal={arXiv},
-  author={Ahn, Junseok and Jang, Youngjoon and Chung, Joon Son and Korea Advanced Institute of Science and Technology}, 
-  year={2023}, 
-  month=sep }
 
-  @INPROCEEDINGS{10445841,
+
+@INPROCEEDINGS{10445841,
   author={Ahn, Junseok and Jang, Youngjoon and Chung, Joon Son},
   booktitle={IEEE International Conference on Acoustics, Speech and Signal Processing}, 
   title={Slowfast Network for Continuous Sign Language Recognition}, 
@@ -17,10 +10,12 @@
   doi={10.1109/ICASSP48485.2024.10445841}}
 
 @article{luo2020comparison,
-  title={Comparison and benchmarking of ai models and frameworks on mobile devices},
-  author={Luo, Chunjie and He, Xiwen and Zhan, Jianfeng and Wang, Lei and Gao, Wanling and Dai, Jiahui},
-  journal={arXiv preprint arXiv:2005.05085},
-  year={2020}
+  title={Comparison and Benchmarking of AI Models and Frameworks on Mobile Devices},
+  author={Chunjie Luo and Xiwen He and Jianfeng Zhan and Lei Wang and Wanling Gao and Jiahui Dai},
+  journal={ArXiv},
+  year={2020},
+  volume={abs/2005.05085},
+  url={https://api.semanticscholar.org/CorpusID:218581849}
 }
 @INPROCEEDINGS{8360327,
   author={Guo, Tian},
@@ -85,14 +80,18 @@ url = {https://www.sciencedirect.com/science/article/pii/S2666990021000471},
 author = {Ahmed KASAPBAŞI and Ahmed Eltayeb AHMED ELBUSHRA and Omar AL-HARDANEE and Arif YILMAZ},
 keywords = {Deep learning, Convolutional neural network CNN, Sign language recognition SLR, OpenCV, New Dataset}
 }
-@misc{farahat2022novelfeaturescramblingapproachreveals,
-      title={A novel feature-scrambling approach reveals the capacity of convolutional neural networks to learn spatial relations}, 
-      author={Amr Farahat and Felix Effenberger and Martin Vinck},
-      year={2022},
-      eprint={2212.06021},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2212.06021}, 
+@article{farahat2022novelfeaturescramblingapproachreveals,
+title = {A novel feature-scrambling approach reveals the capacity of convolutional neural networks to learn spatial relations},
+journal = {Neural Networks},
+volume = {167},
+pages = {400-414},
+year = {2023},
+issn = {0893-6080},
+doi = {https://doi.org/10.1016/j.neunet.2023.08.021},
+url = {https://www.sciencedirect.com/science/article/pii/S0893608023004410},
+author = {Amr Farahat and Felix Effenberger and Martin Vinck},
+keywords = {Computer vision, Object recognition, Visual cortex, CNNs, Shape representations, Texture bias},
+abstract = {Convolutional neural networks (CNNs) are one of the most successful computer vision systems to solve object recognition. Furthermore, CNNs have major applications in understanding the nature of visual representations in the human brain. Yet it remains poorly understood how CNNs actually make their decisions, what the nature of their internal representations is, and how their recognition strategies differ from humans. Specifically, there is a major debate about the question of whether CNNs primarily rely on surface regularities of objects, or whether they are capable of exploiting the spatial arrangement of features, similar to humans. Here, we develop a novel feature-scrambling approach to explicitly test whether CNNs use the spatial arrangement of features (i.e. object parts) to classify objects. We combine this approach with a systematic manipulation of effective receptive field sizes of CNNs as well as minimal recognizable configurations (MIRCs) analysis. In contrast to much previous literature, we provide evidence that CNNs are in fact capable of using relatively long-range spatial relationships for object classification. Moreover, the extent to which CNNs use spatial relationships depends heavily on the dataset, e.g. texture vs. sketch. In fact, CNNs even use different strategies for different classes within heterogeneous datasets (ImageNet), suggesting CNNs have a continuous spectrum of classification strategies. Finally, we show that CNNs learn the spatial arrangement of features only up to an intermediate level of granularity, which suggests that intermediate rather than global shape features provide the optimal trade-off between sensitivity and specificity in object classification. These results provide novel insights into the nature of CNN representations and the extent to which they rely on the spatial arrangement of features for object classification.}
 }
 
 @Article{electronics13071229,
@@ -107,14 +106,17 @@ URL = {https://www.mdpi.com/2079-9292/13/7/1229},
 ISSN = {2079-9292},
 DOI = {10.3390/electronics13071229}
 }
-@misc{vaswani2023attentionneed,
-  title={Attention Is All You Need}, 
-  author={Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and Lukasz Kaiser and Illia Polosukhin},
-  year={2023},
-  eprint={1706.03762},
-  archivePrefix={arXiv},
-  primaryClass={cs.CL},
-  url={https://arxiv.org/abs/1706.03762}, 
+
+@inproceedings{vaswani2017attentionneed,
+ author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, \L ukasz and Polosukhin, Illia},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {I. Guyon and U. Von Luxburg and S. Bengio and H. Wallach and R. Fergus and S. Vishwanathan and R. Garnett},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Attention is All you Need},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf},
+ volume = {30},
+ year = {2017}
 }
 @article{DU2022115,
 title = {Full transformer network with masking future for word-level sign language recognition},
@@ -128,5 +130,362 @@ url = {https://www.sciencedirect.com/science/article/pii/S0925231222006178},
 author = {Yao Du and Pan Xie and Mingye Wang and Xiaohui Hu and Zheng Zhao and Jiaqi Liu},
 keywords = {Word-level sign language recognition, Transformer, Mask Future},
 }
+@article{eta2024signformer,
+author = {Yang, Eta},
+year = {2024},
+month = {11},
+pages = {},
+title = {Signformer is all you need: Towards Edge AI for Sign Language},
+doi = {10.48550/arXiv.2411.12901}
+}
+@misc{hu2024corrnetsignlanguagerecognition,
+      title={CorrNet+: Sign Language Recognition and Translation via Spatial-Temporal Correlation}, 
+      author={Lianyu Hu and Wei Feng and Liqing Gao and Zekang Liu and Liang Wan},
+      year={2024},
+      eprint={2404.11111},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2404.11111}, 
+}
+@INPROCEEDINGS{hu2023continuoussignlanguagerecognition,
+  author={Hu, Lianyu and Gao, Liqing and Liu, Zekang and Feng, Wei},
+  booktitle={2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, 
+  title={Continuous Sign Language Recognition with Correlation Network}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={2529-2539},
+  keywords={Body regions;Visualization;Computer vision;Correlation;Face recognition;Gesture recognition;Assistive technologies;Humans: Face;body;pose;gesture;movement},
+  doi={10.1109/CVPR52729.2023.00249}}
 
+@article{li2025uni,
+      title={Uni-Sign: Toward Unified Sign Language Understanding at Scale}, 
+      author={Zecheng Li and Wengang Zhou and Weichao Zhao and Kepeng Wu and Hezhen Hu and Houqiang Li},
+      year={2025},
+      eprint={2501.15187},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2501.15187}, 
+}
+@Inbook{Sinha_et_al_2021,
+author="Cooper, Helen
+and Holt, Brian
+and Bowden, Richard",
+editor="Moeslund, Thomas B.
+and Hilton, Adrian
+and Kr{\"u}ger, Volker
+and Sigal, Leonid",
+title="Sign Language Recognition",
+bookTitle="Visual Analysis of Humans: Looking at People",
+year="2011",
+publisher="Springer London",
+address="London",
+pages="539--562",
+abstract="This chapter covers the key aspects of sign-language recognition (SLR), starting with a brief introduction to the motivations and requirements, followed by a pr{\'e}cis of sign linguistics and their impact on the field. The types of data available and the relative merits are explored allowing examination of the features which can be extracted. Classifying the manual aspects of sign (similar to gestures) is then discussed from a tracking and non-tracking viewpoint before summarising some of the approaches to the non-manual aspects of sign languages. Methods for combining the sign classification results into full SLR are given showing the progression towards speech recognition techniques and the further adaptations required for the sign specific case. Finally the current frontiers are discussed and the recent research presented. This covers the task of continuous sign recognition, the work towards true signer independence, how to effectively combine the different modalities of sign, making use of the current linguistic research and adapting to larger more noisy data sets.",
+isbn="978-0-85729-997-0",
+doi="10.1007/978-0-85729-997-0_27",
+url="https://doi.org/10.1007/978-0-85729-997-0_27"
+}
+
+@INPROCEEDINGS{Elakkiya_et_al_2019,
+  author={Sarhan, Noha and Frintrop, Simone},
+  booktitle={2023 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)}, 
+  title={Unraveling a Decade: A Comprehensive Survey on Isolated Sign Language Recognition}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={3202-3211},
+  keywords={Surveys;Computer vision;Visualization;Shape;Computational modeling;Face recognition;Transfer learning;Isolated Sign Language Recognition;Deep Learning;Survey},
+  doi={10.1109/ICCVW60793.2023.00345}}
+
+
+@INPROCEEDINGS {SLTS,
+author = { Cihan Camgoz, Necati and Koller, Oscar and Hadfield, Simon and Bowden, Richard },
+booktitle = { 2020 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) },
+title = {{ Sign Language Transformers: Joint End-to-End Sign Language Recognition and Translation }},
+year = {2020},
+volume = {},
+ISSN = {},
+pages = {10020-10030},
+abstract = { Prior work on Sign Language Translation has shown that having a mid-level sign gloss representation (effectively recognizing the individual signs) improves the translation performance drastically. In fact, the current state-of-the-art in translation requires gloss level tokenization in order to work. We introduce a novel transformer based architecture that jointly learns Continuous Sign Language Recognition and Translation while being trainable in an end-to-end manner. This is achieved by using a Connectionist Temporal Classification (CTC) loss to bind the recognition and translation problems into a single unified architecture. This joint approach does not require any ground-truth timing information, simultaneously solving two co-dependant sequence-to-sequence learning problems and leads to significant performance gains. We evaluate the recognition and translation performances of our approaches on the challenging RWTH-PHOENIX-Weather-2014T (PHOENIX14T) dataset. We report state-of-the-art sign language recognition and translation results achieved by our Sign Language Transformers. Our translation networks outperform both sign video to spoken language and gloss to spoken language translation models, in some cases more than doubling the performance (9.58 vs. 21.80 BLEU-4 Score). We also share new baseline translation results using transformer networks for several other text-to-text sign language translation tasks. },
+keywords = {Assistive technology;Gesture recognition;Task analysis;Linguistics;Computer vision;Decoding},
+doi = {10.1109/CVPR42600.2020.01004},
+url = {https://doi.ieeecomputersociety.org/10.1109/CVPR42600.2020.01004},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+month =Jun
+}
+
+@INPROCEEDINGS {gong2024llmsgoodsignlanguage,
+author = { Gong, Jia and Foo, Lin Geng and He, Yixuan and Rahmani, Hossein and Liu, Jun },
+booktitle = { 2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) },
+title = {{ LLMs are Good Sign Language Translators }},
+year = {2024},
+volume = {},
+ISSN = {},
+pages = {18362-18372},
+abstract = { Sign Language Translation (SLT) is a challenging task that aims to translate sign videos into spoken language. Inspired by the strong translation capabilities of large language models (LLMs) that are trained on extensive multilingual text corpora, we aim to harness off-the-shelf LLMs to handle SLT. In this paper, we regularize the sign videos to embody linguistic characteristics of spoken language, and propose a novel SignLLM framework to transform sign videos into a language-like representation for improved readability by off-the-shelf LLMs. SignLLM comprises two key modules: (1) The Vector-Quantized Visual Sign module converts sign videos into a sequence of discrete character-level sign tokens, and (2) the Codebook Reconstruction and Alignment module converts these character-level tokens into word-level sign representations using an optimal transport formulation. A sign-text alignment loss further bridges the gap between sign and text tokens, enhancing semantic compatibility. We achieve state-of-the-art gloss-free results on two widely-used SLT benchmarks. },
+keywords = {Sign language;Visualization;Large language models;Semantics;Transforms;Assistive technologies;Benchmark testing},
+doi = {10.1109/CVPR52733.2024.01738},
+url = {https://doi.ieeecomputersociety.org/10.1109/CVPR52733.2024.01738},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+month =Jun}
+@article{howard2017mobilenets,
+author = {Howard, Andrew and Zhu, Menglong and Chen, Bo and Kalenichenko, Dmitry and Wang, Weijun and Weyand, Tobias and Andreetto, Marco and Adam, Hartwig},
+year = {2017},
+month = {04},
+pages = {},
+title = {MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications},
+doi = {10.48550/arXiv.1704.04861}
+}
+@misc{ba2016layer,
+      title={Layer Normalization}, 
+      author={Jimmy Lei Ba and Jamie Ryan Kiros and Geoffrey E. Hinton},
+      year={2016},
+      eprint={1607.06450},
+      archivePrefix={arXiv},
+      primaryClass={stat.ML},
+      url={https://arxiv.org/abs/1607.06450},
+}
+@inproceedings{zhu2019deformable,
+  author={Zhu, Xizhou and Hu, Han and Lin, Stephen and Dai, Jifeng},
+  booktitle={2019 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, 
+  title={Deformable ConvNets V2: More Deformable, Better Results}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={9300-9308},
+  keywords={Recognition: Detection;Categorization;Retrieval},
+  doi={10.1109/CVPR.2019.00953}}
+
+
+@article{mikolov2013efficient,
+author = {Mikolov, Tomas and Chen, Kai and Corrado, G.s and Dean, Jeffrey},
+year = {2013},
+month = {01},
+pages = {},
+title = {Efficient Estimation of Word Representations in Vector Space},
+volume = {2013},
+journal = {Proceedings of Workshop at ICLR},
+url = {https://www.researchgate.net/publication/234131319_Efficient_Estimation_of_Word_Representations_in_Vector_Space},
+}
+
+@inproceedings{pennington-etal-2014-glove,
+    title = "{G}lo{V}e: Global Vectors for Word Representation",
+    author = "Pennington, Jeffrey  and
+      Socher, Richard  and
+      Manning, Christopher",
+    editor = "Moschitti, Alessandro  and
+      Pang, Bo  and
+      Daelemans, Walter",
+    booktitle = "Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing ({EMNLP})",
+    month = oct,
+    year = "2014",
+    address = "Doha, Qatar",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/D14-1162/",
+    doi = "10.3115/v1/D14-1162",
+    pages = "1532--1543"
+}
+@article{wu2016google,
+      title={Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation}, 
+      author={Yonghui Wu and Mike Schuster and Zhifeng Chen and Quoc V. Le and Mohammad Norouzi and Wolfgang Macherey and Maxim Krikun and Yuan Cao and Qin Gao and Klaus Macherey and Jeff Klingner and Apurva Shah and Melvin Johnson and Xiaobing Liu and Łukasz Kaiser and Stephan Gouws and Yoshikiyo Kato and Taku Kudo and Hideto Kazawa and Keith Stevens and George Kurian and Nishant Patil and Wei Wang and Cliff Young and Jason Smith and Jason Riesa and Alex Rudnick and Oriol Vinyals and Greg Corrado and Macduff Hughes and Jeffrey Dean},
+      year={2016},
+      eprint={1609.08144},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/1609.08144}, 
+}
+
+@article{freitag2017beam,
+author = {Freitag, Markus and Al-Onaizan, Yaser},
+year = {2017},
+month = {02},
+pages = {},
+title = {Beam Search Strategies for Neural Machine Translation},
+doi = {10.48550/arXiv.1702.01806}
+}
+
+@inproceedings{yang2018breaking,
+    title = "Breaking the Beam Search Curse: A Study of (Re-)Scoring Methods and Stopping Criteria for Neural Machine Translation",
+    author = "Yang, Yilin  and
+      Huang, Liang  and
+      Ma, Mingbo",
+    editor = "Riloff, Ellen  and
+      Chiang, David  and
+      Hockenmaier, Julia  and
+      Tsujii, Jun{'}ichi",
+    booktitle = "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing",
+    month = oct # "-" # nov,
+    year = "2018",
+    address = "Brussels, Belgium",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/D18-1342/",
+    doi = "10.18653/v1/D18-1342",
+    pages = "3054--3059",
+    abstract = "Beam search is widely used in neural machine translation, and usually improves translation quality compared to greedy search. It has been widely observed that, however, beam sizes larger than 5 hurt translation quality. We explain why this happens, and propose several methods to address this problem. Furthermore, we discuss the optimal stopping criteria for these methods. Results show that our hyperparameter-free methods outperform the widely-used hyperparameter-free heuristic of length normalization by +2.0 BLEU, and achieve the best results among all methods on Chinese-to-English translation."
+}
+@inproceedings{spaMo,
+    title = "An Efficient Gloss-Free Sign Language Translation Using Spatial Configurations and Motion Dynamics with {LLM}s",
+    author = "Hwang, Eui Jun  and
+      Cho, Sukmin  and
+      Lee, Junmyeong  and
+      Park, Jong C.",
+    editor = "Chiruzzo, Luis  and
+      Ritter, Alan  and
+      Wang, Lu",
+    booktitle = "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+    month = apr,
+    year = "2025",
+    address = "Albuquerque, New Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.naacl-long.197/",
+    pages = "3901--3920",
+    ISBN = "979-8-89176-189-6",
+    abstract = "Gloss-free Sign Language Translation (SLT) converts sign videos into spoken language sentences without relying on glosses, which are the written representations of signs. Recently, Large Language Models (LLMs) have shown remarkable translation performance in gloss-free methods by harnessing their powerful natural language generation capabilities. However, these methods often rely on domain-specific fine-tuning of visual encoders to achieve optimal results. By contrast, we emphasize the importance of capturing the spatial configurations and motion dynamics in sign language. With this in mind, we introduce Spatial and Motion-based Sign Language Translation (SpaMo), a novel LLM-based SLT framework. The core idea of SpaMo is simple yet effective: instead of domain-specific tuning, we use off-the-shelf visual encoders to extract spatial and motion features, which are then input into an LLM along with a language prompt. Additionally, we employ a visual-text alignment process as a lightweight warm-up step before applying SLT supervision. Our experiments demonstrate that SpaMo achieves state-of-the-art performance on three popular datasets{---}PHOENIX14T, CSL-Daily, and How2Sign{---}without visual fine-tuning."
+}
+@inproceedings{kreutzer-etal-2019-joey,
+    title = "Joey {NMT}: A Minimalist {NMT} Toolkit for Novices",
+    author = "Kreutzer, Julia  and
+      Bastings, Jasmijn  and
+      Riezler, Stefan",
+    booktitle = "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP): System Demonstrations",
+    month = nov,
+    year = "2019",
+    address = "Hong Kong, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/D19-3019",
+    doi = "10.18653/v1/D19-3019",
+    pages = "109--114",
+}
+
+@misc{tensorflow2022posttraining,
+  title = {Post-training quantization | TensorFlow Model Optimization},
+  howpublished = {\url{https://www.tensorflow.org/model_optimization/guide/quantization/post_training}},
+  year = {2022},
+  note = {Accessed: 2025-05-15}
+}
+
+@misc{tensorflow2022qat,
+  title = {Quantization aware training | TensorFlow Model Optimization},
+  howpublished = {\url{https://www.tensorflow.org/model_optimization/guide/quantization/training}},
+  year = {2022},
+  note = {Accessed: 2025-05-15}
+}
+
+@misc{tensorflow2022integration,
+  title = {TensorFlow Lite | TensorFlow},
+  howpublished = {\url{https://www.tensorflow.org/lite}},
+  year = {2022},
+  note = {Accessed: 2025-05-15}
+}
+
+@misc{semenova2024bring,
+  author       = {Kateryna Semenova and Mark Sherwood},
+  title        = {How to bring your AI Model to Android devices},
+  year         = {2024},
+  month        = {October},
+  url          = {https://android-developers.googleblog.com/2024/10/bring-your-ai-model-to-android-devices.html},
+  note         = {Accessed: 2025-05-15}
+}
+
+
+@misc{executorch2023,
+  author={{Meta AI}},
+  title={ExecuTorch: A Unified Runtime for On-Device Inference},
+  year={2023},
+  url={https://pytorch.org/executorch/}
+}
+@misc{android_permissions,
+  title = {Permissions overview},
+  howpublished = {\url{https://developer.android.com/guide/topics/permissions/overview}},
+  note = {Geraadpleegd op 16 mei 2025},
+  publisher = {Android Developers}
+}
+
+@misc{android_manifest,
+  title = {App Manifest Overview},
+  howpublished = {\url{https://developer.android.com/guide/topics/manifest/manifest-intro}},
+  note = {Geraadpleegd op 16 mei 2025},
+  publisher = {Android Developers}
+}
+
+@misc{android_runtime_permissions,
+  title = {Request App Permissions},
+  howpublished = {\url{https://developer.android.com/training/permissions/requesting}},
+  note = {Geraadpleegd op 16 mei 2025},
+  publisher = {Android Developers}
+}
+
+@inbook{paszke2019pytorch,
+author = {Paszke, Adam and Gross, Sam and Massa, Francisco and Lerer, Adam and Bradbury, James and Chanan, Gregory and Killeen, Trevor and Lin, Zeming and Gimelshein, Natalia and Antiga, Luca and Desmaison, Alban and K\"{o}pf, Andreas and Yang, Edward and DeVito, Zach and Raison, Martin and Tejani, Alykhan and Chilamkurthy, Sasank and Steiner, Benoit and Fang, Lu and Bai, Junjie and Chintala, Soumith},
+title = {PyTorch: an imperative style, high-performance deep learning library},
+year = {2019},
+publisher = {Curran Associates Inc.},
+address = {Red Hook, NY, USA},
+abstract = {Deep learning frameworks have often focused on either usability or speed, but not both. PyTorch is a machine learning library that shows that these two goals are in fact compatible: it provides an imperative and Pythonic programming style that supports code as a model, makes debugging easy and is consistent with other popular scientific computing libraries, while remaining efficient and supporting hardware accelerators such as GPUs.In this paper, we detail the principles that drove the implementation of PyTorch and how they are reflected in its architecture. We emphasize that every aspect of PyTorch is a regular Python program under the full control of its user. We also explain how the careful and pragmatic implementation of the key components of its runtime enables them to work together to achieve compelling performance. We demonstrate the efficiency of individual subsystems, as well as the overall speed of PyTorch on several common benchmarks.},
+booktitle = {Proceedings of the 33rd International Conference on Neural Information Processing Systems},
+articleno = {721},
+numpages = {12},
+url = {https://proceedings.neurips.cc/paper_files/paper/2019/file/bdbca288fee7f92f2bfa9f7012727740-Paper.pdf},
+}
+@misc{pytorch_jit,
+  title = {Introduction to TorchScript},
+  howpublished = {\url{https://pytorch.org/tutorials/beginner/Intro_to_TorchScript_tutorial.html}},
+  note = {Geraadpleegd op 16 mei 2025},
+  publisher = {PyTorch},
+  url = {https://pytorch.org/tutorials/beginner/Intro_to_TorchScript_tutorial.html}
+}
+
+@misc{pytorch2023mobile,
+  title = {PyTorch Mobile},
+  url = {https://pytorch.org/mobile},
+  note = {Geraadpleegd op 16 mei 2025},
+  publisher = {PyTorch}
+}
+
+@misc{tensorflow_lite,
+  title = {TensorFlow Lite},
+  url={https://www.tensorflow.org/lite},
+  note = {Geraadpleegd op 16 mei 2025},
+  publisher = {TensorFlow}
+}
+
+@misc{tflite_ops,
+  title = {TensorFlow Lite operations},
+  url = {https://www.tensorflow.org/lite/guide/ops},
+  note = {Geraadpleegd op 16 mei 2025},
+  publisher = {TensorFlow}
+}
+
+@article{pruning_survey,
+  author = {Blalock, Davis and Ghasemzadeh, Jose and Mozer, Michael C. and Kriegman, David J.},
+  title = {What is the State of Neural Network Pruning?},
+  journal = {arXiv preprint arXiv:2003.03033},
+  year = {2020}
+}
+
+@misc{pytorch_android_docs,
+  title = {PyTorch Mobile for Android},
+  url = {https://pytorch.org/mobile/android},
+  note = {Geraadpleegd op 16 mei 2025},
+  publisher = {PyTorch}
+}
+
+@misc{android_camerax,
+  title = {CameraX overview},
+  howpublished = {\url{https://developer.android.com/training/camerax}},
+  note = {Geraadpleegd op 16 mei 2025},
+  publisher = {Android Developers}
+}
+@article{quantization_survey,
+      title={Quantizing deep convolutional networks for efficient inference: A whitepaper}, 
+      author={Raghuraman Krishnamoorthi},
+      year={2018},
+      eprint={1806.08342},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/1806.08342}, 
+}
 @Comment{jabref-meta: databaseType:biblatex;}

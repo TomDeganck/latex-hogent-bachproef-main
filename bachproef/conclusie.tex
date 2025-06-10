@@ -14,5 +14,39 @@
 % Heeft het onderzoek geleid tot nieuwe vragen die uitnodigen tot verder 
 %onderzoek?
 
-\lipsum[76-80]
 
+De ontwikkeling en implementatie van een gebarentaalvertalingsmodel voor Vlaamse Gebarentaal (VGT) dat geschikt is voor inferentie op edge devices is onderzocht. 
+Het is gebleken dat het technisch mogelijk is om een model te vinden, te trainen en voor te bereiden voor deze specifieke toepassing. 
+Echter, de weg hiernaartoe wordt gekenmerkt door significante uitdagingen die primair verband houden met de beschikbaarheid van data en de beperkingen van de doelhardware.
+Ook de beperking van goede bestaande modellen die omzetbaar zijn naar edge devices is een probleem.
+\\
+\\
+Een van de meest prominente hindernissen is de \textbf{schaarste aan datasets voor Vlaamse Gebarentaal}. 
+Het creëren van hoogwaardige, omvangrijke datasets voor gebarentalen is een tijdrovend proces, dat gespecialiseerde kennis en middelen vereist.
+Hoewel er datasets bestaan voor andere gebarentalen, is VGT een unieke taal met eigen grammaticale structuren, lexicon en spatiële kenmerken die significant kunnen verschillen van andere gebarentalen, zelfs binnen dezelfde taalfamilie. 
+Hierdoor zijn datasets van andere gebarentalen niet direct bruikbaar voor het trainen van een VGT-specifiek model zonder aanzienlijke aanpassingen of het risico op negatieve transfer. 
+Het trainen van een model op basis van onvoldoende VGT-data leidt onvermijdelijk tot beperkingen in nauwkeurigheid, robuustheid en generaliseerbaarheid naar verschillende sprekers en contexten. 
+Bovendien vereisen veel bestaande modellen vaak al voorverwerkte datasets, wat extra complexiteit introduceert bij het opzetten van een end-to-end pipeline die werkt met ruwe videodata rechtstreeks van een camera.
+\\
+\\
+Op het vlak van hardware vormen de \textbf{beperkingen van de meeste edge devices} een aanzienlijk probleem voor het draaien van complexe, diepe neurale netwerken. 
+De rekenkracht (met name voor floating-point operaties), het beschikbare geheugen en de beperkingen op het gebied van energieverbruik op deze apparaten zijn vaak onvoldoende om grote modellen efficiënt te draaien met lage latency. 
+Dit beperkt de selectie van geschikte modelarchitecturen en vereist vaak aanzienlijke modelcompressie en optimalisatie (zoals kwantisatie of pruning). 
+Veel bestaande, krachtige modellen zijn bovendien primair ontwikkeld voor server- of desktop-hardware en zijn niet altijd direct up-to-date of geoptimaliseerd voor de specifieke software- en hardware-architecturen (zoals mobiele NPUs of DSPs) die op moderne edge devices te vinden zijn.
+\\
+\\
+Ondanks deze uitdagingen, laat het ontwikkelde model veelbelovende resultaten zien die de potentie van deze aanpak onderstrepen. 
+Het model behaalt een respectabele \textbf{BLUE-4 score van 22.11} en een \textbf{ROUGE score van 47.24} op de test set. 
+Deze scores, hoewel er altijd ruimte is voor verbetering, tonen aan dat het model in staat is om betekenisvolle vertalingen te genereren. 
+Doordat het model dat gebruikt wordt zeer complex is en veel custom lagen bevat, is het niet gelukt om het model omgezet te krijgen naar een formaat dat geschikt is voor edge devices.
+\\
+\\
+Voor de toepassing van gebarentaalvertaling in de praktijk is \textbf{on-device inferentie de meest geschikte en wenselijke oplossing}. 
+Het grootste en meest directe voordeel hiervan is de volledige onafhankelijkheid van een stabiele en snelle internetverbinding, wat real-time gebruik mogelijk maakt in vrijwel elke omgeving, overal en altijd. 
+Dit draagt tevens significant bij aan de privacy van de gebruiker, aangezien gevoelige videodata die gebaren bevat, lokaal op het apparaat blijft en niet naar externe servers hoeft te worden gestuurd voor verwerking. 
+Doordat de inferentie direct op het apparaat zelf plaatsvindt, is er bovendien bijna geen merkbare latency tussen het maken van het gebaar en het verschijnen van de vertaling, wat resulteert in een vloeiende, responsieve en natuurlijke gebruikerservaring die essentieel is voor effectieve communicatie.
+\\
+\\
+Samenvattend is de realisatie van een VGT-vertalingsmodel dat efficiënt draait op edge devices een uitdagend, maar haalbaar doel. 
+De behaalde resultaten met de huidige pipeline zijn bemoedigend en vormen een robuuste basis voor toekomstige optimalisaties op het gebied van modelarchitectuur. 
+Door gericht te werken aan het vergroten van beschikbare VGT-data en het verder optimaliseren van de pipeline voor specifieke edge hardware, kan de inzetbaarheid en prestatie significant worden verbeterd, waarmee de toegankelijkheid van gebarentaalvertaling voor de VGT-gemeenschap aanzienlijk vergroot kan worden.
